@@ -60,14 +60,14 @@ function SideNavigation() {
       {isOpen ? (
         <button
           onClick={toggleSidebar}
-          className="fixed z-[999] top-4 right-4 text-white active:border-none rounded-md animation-pulse focus:outline-none"
+          className="fixed z-[999] top-8 right-8 text-white active:border-none rounded-md animation-pulse focus:outline-none"
         >
           <XMarkIcon className="h-14 w-14" />
         </button>
       ) : (
         <button
           onClick={toggleSidebar}
-          className="fixed z-[999] top-4 right-4 text-white active:border-none rounded-md animation-pulse focus:outline-none bg-primary-blue"
+          className="fixed z-[999] top-8 right-8 text-primary-blue active:border-none rounded-md animation-pulse focus:outline-none"
         >
           <Bars3Icon className="h-14 w-14" />
         </button>

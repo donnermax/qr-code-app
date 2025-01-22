@@ -21,12 +21,11 @@ export default async function dashboard() {
   }
   
   return (
-    <div className="md:w-2/3 md:mx-auto mt-12">
+    <div className="md:w-2/3 md:mx-auto mt-12 md:text-center">
       <h1 className="font-bold text-4xl mb-1">This is your dashboard</h1>
       <h2 className="text-[#ccc] text-xl font-bold">Create and manage all your QR codes here.</h2>
       <div className="mt-5 flex flex-col text-center gap-4 uppercase">
         <QRCodeGenerator />
-
       </div>
     </div>
   );

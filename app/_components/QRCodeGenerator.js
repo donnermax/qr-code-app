@@ -90,7 +90,7 @@ const QRCodeGenerator = () => {
         console.error("Error inserting data into Supabase:", error.message);
         alert("Failed to save QR code details. Please try again.");
       } else {
-        alert("QR code details saved successfully!");
+        // alert("QR code details saved successfully!");
       }
     } catch (err) {
       console.error("Error interacting with Supabase:", err.message);
@@ -128,8 +128,7 @@ const QRCodeGenerator = () => {
 
   return (
     <div className="text-left capitalize my-4">
-      <h1 className="text-2xl font-semibold mb-2">QR Code Generator</h1>
-      <div className="md:w-2/3 w-full flex gap-4 flex-col">
+      <div className="md:w-2/3 w-full flex gap-4 flex-col mx-auto">
         <div className="flex justify-between items-center relative">
           <label>Name for QR Code:</label>
           <div className="relative">

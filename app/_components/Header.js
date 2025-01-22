@@ -2,7 +2,7 @@ import Logo from "@/app/_components/Logo";
 
 function Header() {
   return (
-    <header className="border-b border-primary-900 z-10 px-8 py-5 bg-primary-blue shadow-md">
+    <header className="z-10 px-8 py-5">
       <Logo />
     </header>
   );

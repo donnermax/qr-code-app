@@ -142,8 +142,8 @@ export default function Login() {
           />
           <div className="flex justify-between gap-12 items-center">
             <button
-              className={`bg-primary-orange text-white hover:bg-primary-yellow hover:text-primary-blue 
-              w-1/2 p-4 rounded-lg transition-all duration-300 font-bold
+              className={`bg-green-100 text-green-700 border-2 border-green-700 hover:bg-green-700 hover:text-green-100
+              w-1/2 p-4 rounded-lg transition-all duration-300 font-bold shadow-md md:hover:shadow-sm
               disabled:opacity-50 disabled:cursor-not-allowed
               focus:outline-none focus:ring-2 focus:ring-primary-orange focus:ring-offset-2`}
               type="submit"
@@ -175,11 +175,11 @@ export default function Login() {
                   Logging in...
                 </span>
               ) : (
-                "Log in"
+                <span className="group-hover:scale-105">Log in</span>
               )}
             </button>
             <Link
-              className="bg-primary-blue text-white hover:bg-primary-yellow hover:text-primary-blue 
+              className="border-primary-blue border-2 text-primary-blue hover:bg-primary-blue hover:text-white 
               w-1/2 p-4 rounded-lg transition-all duration-300 font-bold
               disabled:opacity-50 disabled:cursor-not-allowed
               focus:outline-none focus:ring-2 focus:ring-primary-orange focus:ring-offset-2 text-center"
