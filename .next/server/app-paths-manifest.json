@@ -1,6 +1,5 @@
 {
-  "/icon.png/route": "app/icon.png/route.js",
-  "/qr/[name]/page": "app/qr/[name]/page.js",
   "/page": "app/page.js",
+  "/qr/[name]/page": "app/qr/[name]/page.js",
   "/dashboard/page": "app/dashboard/page.js"
 }
