@@ -29,9 +29,8 @@ const QRCodeGenerator = () => {
     }
   
     const userId = user.id; // User's UUID
-    // const redirectUrl = `theqrco.com/qr/${name}`;
-    // const redirectUrl = `http://localhost:3000/qr/${name}`;
-    const redirectUrl = `https://qr-code-od1tobv9x-maxs-projects-142235fc.vercel.app/qr/${name}`;
+    // Dynamically get the current domain
+    const redirectUrl = `${window.location.origin}/qr/${name}`;
     setQrUrl(redirectUrl);
   
     // Insert data into the Supabase table
