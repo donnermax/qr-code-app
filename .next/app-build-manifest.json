@@ -40,7 +40,8 @@
     "/qr/[name]/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/qr/[name]/layout.js"
+      "static/chunks/app/qr/[name]/layout.js",
+      "static/css/app/qr/[name]/layout.css"
     ]
   }
 }
