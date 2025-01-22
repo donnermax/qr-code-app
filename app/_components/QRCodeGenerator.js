@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import QRCodeCanvas from "./QRCodeCanvas";
+import React, { useState, useRef } from "react";
+import QRCode from "react-qr-code";
 import { createClient } from "@/utils/supabase/client";
 import debounce from "lodash.debounce";
 
@@ -13,6 +13,7 @@ const QRCodeGenerator = () => {
   const [qrUrl, setQrUrl] = useState("");
   const [isNameTaken, setIsNameTaken] = useState(false);
   const [isCheckingName, setIsCheckingName] = useState(false);
+  const qrCodeRef = useRef(null); // Ref for the QR code canvas
 
   // Function to check name availability
   const checkNameAvailability = debounce(async (nameToCheck) => {
@@ -33,11 +34,11 @@ const QRCodeGenerator = () => {
 
     if (error && error.code !== "PGRST116") {
       console.error("Error checking name uniqueness:", error.message);
-      setIsNameTaken(false); // Assume the name is not taken if there's an error
+      setIsNameTaken(false);
     } else {
       setIsNameTaken(!!existingName);
     }
-  }, 500); // Debounce with a delay of 500ms
+  }, 500);
 
   // Update name state and check availability
   const handleNameChange = (e) => {
@@ -57,7 +58,6 @@ const QRCodeGenerator = () => {
       return;
     }
 
-    // Fetch the authenticated user's details
     const {
       data: { user },
       error: userError,
@@ -72,17 +72,14 @@ const QRCodeGenerator = () => {
       return;
     }
 
-    const userId = user.id; // User's UUID
-
-    // Dynamically get the current domain
+    const userId = user.id;
     const redirectUrl = `${window.location.origin}/qr/${name}`;
     setQrUrl(redirectUrl);
 
-    // Insert data into the Supabase table
     try {
       const { data, error } = await supabase.from("qr_codes").insert([
         {
-          user_id: userId, // Associate the QR code with the user
+          user_id: userId,
           name: name,
           url: url,
           qr_url: name,
@@ -93,7 +90,6 @@ const QRCodeGenerator = () => {
         console.error("Error inserting data into Supabase:", error.message);
         alert("Failed to save QR code details. Please try again.");
       } else {
-        console.log("Data saved to Supabase:", data);
         alert("QR code details saved successfully!");
       }
     } catch (err) {
@@ -102,8 +98,36 @@ const QRCodeGenerator = () => {
     }
   };
 
+  const handleDownload = () => {
+    if (!qrCodeRef.current) return;
+
+    // Convert SVG to Canvas
+    const svg = qrCodeRef.current.querySelector("svg");
+    const canvas = document.createElement("canvas");
+    const ctx = canvas.getContext("2d");
+    const svgData = new XMLSerializer().serializeToString(svg);
+    const img = new Image();
+
+    const svgBlob = new Blob([svgData], { type: "image/svg+xml;charset=utf-8" });
+    const url = URL.createObjectURL(svgBlob);
+
+    img.onload = () => {
+      canvas.width = svg.clientWidth;
+      canvas.height = svg.clientHeight;
+      ctx.drawImage(img, 0, 0);
+      URL.revokeObjectURL(url);
+
+      const link = document.createElement("a");
+      link.download = `${name || "qr-code"}.png`;
+      link.href = canvas.toDataURL("image/png");
+      link.click();
+    };
+
+    img.src = url;
+  };
+
   return (
-    <div className="text-left capitalize">
+    <div className="text-left capitalize my-4">
       <h1 className="text-2xl font-semibold mb-2">QR Code Generator</h1>
       <div className="md:w-2/3 w-full flex gap-4 flex-col">
         <div className="flex justify-between items-center relative">
@@ -152,13 +176,17 @@ const QRCodeGenerator = () => {
         </button>
       </div>
       {qrUrl && (
-        <div style={{ marginTop: "30px", textAlign: "center" }}>
-          <div className="mx-auto">
-          <QRCodeCanvas value={qrUrl} />
-          </div>
+        <div style={{ marginTop: "30px", textAlign: "center" }} ref={qrCodeRef}>
+          <QRCode className="mx-auto" value={qrUrl} size={256} />
           <p>
             Scan the code or visit: <strong>{qrUrl}</strong>
           </p>
+          <button
+            onClick={handleDownload}
+            className="bg-primary-blue hover:bg-primary-orange text-white py-2 px-4 rounded mt-4"
+          >
+            Download QR Code
+          </button>
         </div>
       )}
     </div>
