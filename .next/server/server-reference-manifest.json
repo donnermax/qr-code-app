@@ -10,10 +10,6 @@
           "moduleId": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fmaxdonner%2FDesktop%2Fqr%2Fqr-code-app%2Fapp%2F_lib%2FuserActions.js%22%2C%5B%22signout%22%2C%22login%22%5D%5D%5D&encryptionKey=xwXCkrRCK3CXkqWWcMD99AROsuy1d5HLrRo5MrDcBKQ%3D&__client_imported__=true!",
           "async": false
         },
-        "app/qr/[name]/page": {
-          "moduleId": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fmaxdonner%2FDesktop%2Fqr%2Fqr-code-app%2Fapp%2F_lib%2FuserActions.js%22%2C%5B%22signout%22%2C%22login%22%5D%5D%5D&encryptionKey=xwXCkrRCK3CXkqWWcMD99AROsuy1d5HLrRo5MrDcBKQ%3D&__client_imported__=true!",
-          "async": false
-        },
         "app/_not-found/page": {
           "moduleId": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fmaxdonner%2FDesktop%2Fqr%2Fqr-code-app%2Fapp%2F_lib%2FuserActions.js%22%2C%5B%22signout%22%2C%22login%22%5D%5D%5D&encryptionKey=xwXCkrRCK3CXkqWWcMD99AROsuy1d5HLrRo5MrDcBKQ%3D&__client_imported__=true!",
           "async": false
@@ -22,7 +18,6 @@
       "layer": {
         "app/page": "action-browser",
         "app/dashboard/page": "action-browser",
-        "app/qr/[name]/page": "action-browser",
         "app/_not-found/page": "action-browser"
       }
     },
@@ -36,10 +31,6 @@
           "moduleId": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fmaxdonner%2FDesktop%2Fqr%2Fqr-code-app%2Fapp%2F_lib%2FuserActions.js%22%2C%5B%22signout%22%2C%22login%22%5D%5D%5D&encryptionKey=xwXCkrRCK3CXkqWWcMD99AROsuy1d5HLrRo5MrDcBKQ%3D&__client_imported__=true!",
           "async": false
         },
-        "app/qr/[name]/page": {
-          "moduleId": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fmaxdonner%2FDesktop%2Fqr%2Fqr-code-app%2Fapp%2F_lib%2FuserActions.js%22%2C%5B%22signout%22%2C%22login%22%5D%5D%5D&encryptionKey=xwXCkrRCK3CXkqWWcMD99AROsuy1d5HLrRo5MrDcBKQ%3D&__client_imported__=true!",
-          "async": false
-        },
         "app/_not-found/page": {
           "moduleId": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fmaxdonner%2FDesktop%2Fqr%2Fqr-code-app%2Fapp%2F_lib%2FuserActions.js%22%2C%5B%22signout%22%2C%22login%22%5D%5D%5D&encryptionKey=xwXCkrRCK3CXkqWWcMD99AROsuy1d5HLrRo5MrDcBKQ%3D&__client_imported__=true!",
           "async": false
@@ -48,7 +39,6 @@
       "layer": {
         "app/page": "action-browser",
         "app/dashboard/page": "action-browser",
-        "app/qr/[name]/page": "action-browser",
         "app/_not-found/page": "action-browser"
       }
     }

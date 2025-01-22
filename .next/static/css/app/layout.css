@@ -560,6 +560,15 @@ video {
 .top-\[-10px\] {
   top: -10px;
 }
+.top-\[-15px\] {
+  top: -15px;
+}
+.top-\[-17px\] {
+  top: -17px;
+}
+.right-1 {
+  right: 0.25rem;
+}
 .z-10 {
   z-index: 10;
 }
@@ -1054,6 +1063,10 @@ video {
 }
 
 @media (min-width: 768px) {
+
+  .md\:right-2 {
+    right: 0.5rem;
+  }
 
   .md\:mx-auto {
     margin-left: auto;

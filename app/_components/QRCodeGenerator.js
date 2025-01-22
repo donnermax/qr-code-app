@@ -105,7 +105,7 @@ const QRCodeGenerator = () => {
   return (
     <div className="text-left capitalize">
       <h1 className="text-2xl font-semibold mb-2">QR Code Generator</h1>
-      <div className="w-2/3 flex gap-4 flex-col">
+      <div className="md:w-2/3 w-full flex gap-4 flex-col">
         <div className="flex justify-between items-center relative">
           <label>Name for QR Code:</label>
           <div className="relative">
@@ -118,7 +118,7 @@ const QRCodeGenerator = () => {
               required
             />
           </div>
-          <div className="absolute top-[-10px] right-2 transform -translate-y-1/2 text-sm">
+          <div className="absolute top-[-17px] right-2 text-sm">
             {isCheckingName ? (
               ""
             ) : isNameTaken ? (
@@ -152,9 +152,10 @@ const QRCodeGenerator = () => {
         </button>
       </div>
       {qrUrl && (
-        <div style={{ marginTop: "20px", textAlign: "center" }}>
-          <h3>QR Code for {name}:</h3>
+        <div style={{ marginTop: "30px", textAlign: "center" }}>
+          <div className="mx-auto">
           <QRCodeCanvas value={qrUrl} />
+          </div>
           <p>
             Scan the code or visit: <strong>{qrUrl}</strong>
           </p>
