@@ -13,6 +13,7 @@
     "@supabase/ssr": "^0.5.1",
     "@supabase/supabase-js": "^2.46.0",
     "date-fns": "^4.1.0",
+    "lodash.debounce": "^4.0.8",
     "next": "15.0.1",
     "qrcode.react": "^4.2.0",
     "react": "^18.3.1",
